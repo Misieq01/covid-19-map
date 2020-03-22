@@ -1,16 +1,29 @@
-import React from 'react';
+import React from "react";
+import { useFetchData } from "./hooks/useFetch";
+import { useSelector } from "react-redux";
+import { loading } from "./store/selectors";
 
-import Panel from './containers/Panel'
-import Map from './containers/Map'
+import MainPanel from "./containers/MainPanel";
+import Map from "./containers/Map";
+import LoadingPanel from "./components/LoadingPanel";
 
 const App = () => {
+  const isLoading = useSelector(state => loading(state));
+  console.log(isLoading)
+  useFetchData();
 
   return (
     <div className="application">
-      <Panel />
-      <Map />
+      {isLoading ? (
+        <LoadingPanel />
+      ) : (
+        <>
+          <MainPanel />
+          <Map />
+        </>
+      )}
     </div>
   );
-}
+};
 
 export default App;

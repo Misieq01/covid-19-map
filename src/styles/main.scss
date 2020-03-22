@@ -1,13 +1,31 @@
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
+  
+}
+h1,h2,h3,h4,h5,h6{
+  margin: 0;
 }
 
 .application{
+  @include flex(null,center);
   width: 100vw;
   height: 100vh;
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
+}
+
+.orange{
+  color:$orange;
+}
+.red{
+  color:$red;
+}
+.green{
+  color:$green;
+}
+.white{
+  color: $white;
 }

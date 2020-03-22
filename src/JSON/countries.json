@@ -636,7 +636,7 @@
             -1, 
             15
         ], 
-        "name": "Republic of the Congo", 
+        "name": "Congo", 
         "country_code": "CG", 
         "capital": "Brazzaville"
     }, 
@@ -768,7 +768,7 @@
             49.75, 
             15.5
         ], 
-        "name": "Czech Republic", 
+        "name": "Czechia", 
         "country_code": "CZ", 
         "capital": "Prague"
     }, 
@@ -976,7 +976,7 @@
             46, 
             2
         ], 
-        "name": "France", 
+        "name": "France",
         "country_code": "FR", 
         "capital": "Paris"
     }, 
@@ -1026,7 +1026,7 @@
             54, 
             -2
         ], 
-        "name": "United Kingdom", 
+        "name": "UK", 
         "country_code": "GB", 
         "capital": "London"
     }, 
@@ -1542,7 +1542,7 @@
             37, 
             127.5
         ], 
-        "name": "South Korea", 
+        "name": "S. Korea", 
         "country_code": "KR", 
         "capital": "Seoul"
     }, 
@@ -1827,7 +1827,7 @@
             41.83333333, 
             22
         ], 
-        "name": "Macedonia", 
+        "name": "North Macedonia", 
         "country_code": "MK", 
         "capital": "Skopje"
     }, 
@@ -2962,7 +2962,7 @@
             38, 
             -97
         ], 
-        "name": "United States", 
+        "name": "USA", 
         "country_code": "US", 
         "capital": "Washington D.C."
     }, 

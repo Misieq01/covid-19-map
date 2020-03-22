@@ -1,0 +1,73 @@
+.country-box {
+  &__container {
+    @include flex(null, center);
+    width: 100%;
+    height: auto;
+    margin: 2px 0;
+    padding: 15px 0;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+    background: rgb(65, 65, 65);
+  }
+  &__smaller {
+    @include flex(null, space-between);
+    width: 95%;
+    height: inherit;
+  }
+  &__wrapper {
+    @include flex(null, space-between);
+    width: 20%;
+    height: auto;
+  }
+  &__country {
+    color: $white;
+  }
+  &__cases {
+    color: $orange;
+  }
+  &__arrow {
+    fill: $white;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      fill: rgba(180, 180, 180, 0.9);
+    }
+  }
+  &__expanded {
+    @include flex(column nowrap);
+    height: 100%;
+    width: 100%;
+  }
+  &__expanded--main {
+    @include flex();
+    width: 100%;
+    height: 60%;
+  }
+  &__main--country {
+    font-size: 42px;
+    color: $white;
+  }
+  &__main--data {
+    @include flex();
+    width: 70%;
+    height: 100%;
+  }
+  &__expanded--box {
+    @include flex(column nowrap);
+    width: 30%;
+    height: 40%;
+  }
+  &__box--total {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  &__box--new {
+    font-size: 18px;
+  }
+  &__expanded--details {
+    @include flex();
+    width: 100%;
+    height: 40%;
+  }
+}

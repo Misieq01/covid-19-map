@@ -1,3 +1,10 @@
+@import "./mixins.scss";
+@import "./variables.scss";
 @import "./main.scss";
-@import "./map.scss";
-@import "./panel.scss";
+@import "./containers/map.scss";
+@import "./containers/main-panel.scss";
+@import "./containers/global-cases-panel.scss";
+@import "./containers/country-cases-panel.scss";
+@import "./components/country-box.scss";
+@import "./components/data-box.scss";
+

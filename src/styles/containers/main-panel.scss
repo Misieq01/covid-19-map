@@ -1,0 +1,24 @@
+
+.panel{
+    &__container{
+    height: 100vh;
+    width: 40%;
+    background: $grey;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
+    overflow-y: auto;
+        &::-webkit-scrollbar {
+      width: 5px;
+      height: 4px;
+    }
+    &::-webkit-scrollbar-button {
+      width: 0px;
+      height:1px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: rgba(215, 215, 215,0.9);
+    }
+}
+}

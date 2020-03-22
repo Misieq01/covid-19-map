@@ -1,0 +1,9 @@
+.country-cases-panel {
+  &__container {
+    @include flex(column nowrap,flex-start);
+    width: 95%;
+    height: 75%;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.16), 0px 3px 6px rgba(0, 0, 0, 0.28);
+  }
+}
