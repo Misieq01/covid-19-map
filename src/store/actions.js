@@ -1,4 +1,4 @@
-import {FETCH_DATA,CHOOSE_DATA} from './types'
+import {FETCH_DATA,CHOOSE_DATA,SEARCH_COUNTRY} from './types'
 import axios from 'axios';
 
 export const fetchData = () => dispatch =>{
@@ -20,5 +20,11 @@ export const sortDataBy = (name,color) =>{
     return {
         type: CHOOSE_DATA,
         sortBy: {name: name,color:color}
+    }
+}
+export const searchCountry = value =>{
+    return{
+        type: SEARCH_COUNTRY,
+        country: value
     }
 }

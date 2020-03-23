@@ -1,4 +1,4 @@
-import {FETCH_DATA,CHOOSE_DATA} from './types'
+import {FETCH_DATA,CHOOSE_DATA,SEARCH_COUNTRY} from './types'
 import countries from '../JSON/countries.json'
 
 const initialState = {
@@ -7,6 +7,7 @@ const initialState = {
     countries: countries,
     loading: true,
     sortBy: {name:'cases',color:'orange'},
+    searchValue: '',
     errorMessage: ''
 }
 
@@ -80,6 +81,8 @@ export const reducer = (state=initialState,action) =>{
                     return {...element,size: declareCircleSize(element[action.sortBy.name])}
                 }).sort((a,b)=>compareNumbers(a,b,action.sortBy.name)).reverse()
             return {...state,sortBy: action.sortBy,countryCases:updatedCountryCases}
+        case SEARCH_COUNTRY:
+            return {...state,searchValue: action.country}
         default:
             return state
     }

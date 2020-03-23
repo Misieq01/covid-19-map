@@ -4,3 +4,4 @@ export const FETCH_DATA = {
     LOADING: 'FETCH_DATA_LOADING'
 }
 export const CHOOSE_DATA = 'CHOOSE_DATA'
+export const SEARCH_COUNTRY = 'SEARCH_COUNTRY'

@@ -1,12 +1,15 @@
 import React from 'react'
 import {useSelector} from 'react-redux'
-import {countryCases} from '../store/selectors'
+import {countryCases,getSearchValue} from '../store/selectors'
 
 import CountryBox from '../components/CountryBox'
 
 const CountryCasesPanel = () =>{
 
-    const data = useSelector(state=>countryCases(state))
+    const searchValue = useSelector(state=>getSearchValue(state))
+    const data = useSelector(state => countryCases(state)).filter(element =>
+      element.country.toLowerCase().includes(searchValue.toLowerCase())
+    );
     const Elements = () =>{
         return data.map((data,index)=> {
             const border = {borderRadius:'5px 0 0 0'}
