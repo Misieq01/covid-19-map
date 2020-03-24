@@ -1,4 +1,4 @@
-import {FETCH_DATA,CHOOSE_DATA,SEARCH_COUNTRY} from './types'
+import {FETCH_DATA,CHOOSE_DATA,SEARCH_COUNTRY,UPDATE_CURSOR_POSITION} from './types'
 import axios from 'axios';
 
 export const fetchData = () => dispatch =>{
@@ -26,5 +26,11 @@ export const searchCountry = value =>{
     return{
         type: SEARCH_COUNTRY,
         country: value
+    }
+}
+export const updateCursorPosition = position =>{
+    return{
+        type: UPDATE_CURSOR_POSITION,
+        position: position
     }
 }

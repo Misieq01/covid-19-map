@@ -1,0 +1,42 @@
+.map-marker{
+    cursor: default;
+}
+
+.leaflet-popup{
+    width: auto;
+    height: auto;
+}
+
+.leaflet-popup-content-wrapper{
+        background: $grey;
+        padding: 0;
+        margin: 0;
+}
+.leaflet-popup-content{
+    @include flex(column nowrap,space-evenly);
+    width: 200px;
+    height: 120px;
+    margin: 0;
+    
+}
+.leaflet-popup-content-data-wrapper{
+    @include flex(column nowrap,space-evenly,flex-start);
+    width: 80%;
+    height: auto;
+}
+
+
+.leaflet-popup-data-country{
+    font-size: 18px;
+    color: $white;
+}
+.leaflet-popup-data-name{
+    font-size: 16px;
+    text-transform: capitalize;
+    color: $white;
+    font-weight: 300;
+}
+.leaflet-popup-data-number{
+    font-size: 22px;
+    font-weight: bold;
+}

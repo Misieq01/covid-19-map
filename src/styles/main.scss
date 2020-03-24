@@ -29,3 +29,7 @@ h1,h2,h3,h4,h5,h6{
 .white{
   color: $white;
 }
+
+.leaflet-fade-anim .leaflet-popup {
+  transition: none;
+}

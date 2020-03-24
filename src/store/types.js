@@ -5,3 +5,4 @@ export const FETCH_DATA = {
 }
 export const CHOOSE_DATA = 'CHOOSE_DATA'
 export const SEARCH_COUNTRY = 'SEARCH_COUNTRY'
+export const UPDATE_CURSOR_POSITION = "UPDATE_CURSOR_POSITION";
