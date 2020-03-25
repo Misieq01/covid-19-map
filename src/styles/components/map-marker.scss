@@ -19,6 +19,10 @@
     margin: 0;
     
 }
+.leaflet-popup-tip{
+    background: $grey;
+}
+
 .leaflet-popup-content-data-wrapper{
     @include flex(column nowrap,space-evenly,flex-start);
     width: 80%;

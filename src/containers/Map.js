@@ -41,22 +41,22 @@ const Map = () => {
         [85, 200]
       ]}
       maxBoundsViscosity={1}
+      markerZoomAnimation={true}
     >
       <TileLayer
         url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png"
         attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
       />
         {data.map((element, index) => {
-          console.log(element)
           return (
             <MapMarker
-              center={element.location}
               key={index}
               radius={element.size * setMultiplayer(zoom)}
               color={sortBy.color}
               dataName={sortBy.name}
               dataNumber={element.number}
               country={element.country}
+              latlng={element.location}
             />
           );
         })}

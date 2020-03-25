@@ -1,0 +1,11 @@
+.content-displayer{
+    &__container{
+        @include flex(column nowrap);
+        width: 100vw;
+        height: 100vh;
+
+        @media ($laptops) {
+            @include flex(row nowrap,space-between)
+        }
+    }
+}

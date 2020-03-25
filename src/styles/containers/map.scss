@@ -1,4 +1,9 @@
 .leaflet-container {
-  width: 60%;
-  height: 100vh;
+  width: 100%;
+  height: calc(100% - 50px);
+
+  @media ($laptops) {
+    height: 100vh;
+    width: 60%;
+  }
 }
