@@ -29,7 +29,7 @@ const Map = () => {
 
   return (
     <LeafletMap
-      style={{cursor:'default'}}
+      style={{ cursor: "default" }}
       center={[52.0, 20.0]}
       zoom={INITIAL_ZOOM}
       minZoom={3}
@@ -44,22 +44,25 @@ const Map = () => {
       markerZoomAnimation={true}
     >
       <TileLayer
-        url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png"
-        attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        //         url="https://1.base.maps.ls.hereapi.com
+        //   /maptile/2.1/maptile/newest/normal.day/13/4400/2686/256/png8
+        // ?apiKey=dd-fkiKG0W018GK9mO5im6hsqn4ZRlqaGgbxkcKyQNY"
+        // attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
       />
-        {data.map((element, index) => {
-          return (
-            <MapMarker
-              key={index}
-              radius={element.size * setMultiplayer(zoom)}
-              color={sortBy.color}
-              dataName={sortBy.name}
-              dataNumber={element.number}
-              country={element.country}
-              latlng={element.location}
-            />
-          );
-        })}
+      {data.map((element, index) => {
+        return (
+          <MapMarker
+            key={index}
+            radius={element.size * setMultiplayer(zoom)}
+            color={sortBy.color}
+            dataName={sortBy.name}
+            dataNumber={element.number}
+            country={element.country}
+            latlng={element.location}
+          />
+        );
+      })}
     </LeafletMap>
   );
 };
