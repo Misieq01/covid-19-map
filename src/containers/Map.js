@@ -44,7 +44,7 @@ const Map = () => {
       markerZoomAnimation={true}
     >
       <TileLayer
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        url="'https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png'"
         //         url="https://1.base.maps.ls.hereapi.com
         //   /maptile/2.1/maptile/newest/normal.day/13/4400/2686/256/png8
         // ?apiKey=dd-fkiKG0W018GK9mO5im6hsqn4ZRlqaGgbxkcKyQNY"
