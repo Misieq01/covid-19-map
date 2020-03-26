@@ -2,7 +2,7 @@
 .panel{
     &__container{
     @include flex(column nowrap,space-between);
-    height: calc(100% - 50px);
+    height: calc(100% - 40px);
     width: 100%;
     background: $white;
     overflow-y: auto;

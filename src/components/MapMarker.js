@@ -1,31 +1,31 @@
-import React,{useRef,useEffect} from "react";
+import React from "react";
 import { CircleMarker, Popup } from "react-leaflet";
 import { useSelector } from "react-redux";
 import { getCursorPosition } from "../store/selectors";
 
 const MapMaker = ({ dataNumber, dataName, country, color,latlng, ...props }) => {
   const cursorPosition = useSelector(state => getCursorPosition(state));
-  const ref = useRef()
 
-
-  useEffect(()=>{
-    console.log(ref.current)
-  },[])
+  const clickHandler = event =>{
+    if(window.innerWidth < 1200){
+      event.target.openPopup()
+    }
+    event.target._map.setView(latlng,6)
+  }
 
   return (
     <CircleMarker
       {...props}
-      ref={ref}
       center={latlng}
-      onmouseover={event => event.target.openPopup()}
-      onmouseout={event => event.target.closePopup()}
+      onmouseover={window.innerWidth > 1200 ? event => event.target.openPopup() : null}
+      onmouseout={window.innerWidth > 1200 ? event => event.target.closePopup() : null}
       color={color}
       fillColor={color}
       className='map-marker'
-      onclick={event=>event.target._map.setView(latlng,6)}
-      onmousedown={()=>console.log('siema')}
+      onclick={event=>clickHandler(event)}
+  
     >
-      <Popup className="leaflet-popup" closeOnClick={false} closeButton={false} position={cursorPosition}>
+      <Popup className="leaflet-popup" closeOnClick={false} closeButton={false} position={cursorPosition} autoPan={false}>
         <div className="leaflet-popup-content-data-wrapper">
           <span className="leaflet-popup-data-country">{country}</span>
         </div>

@@ -4,7 +4,7 @@ import { loading } from "../store/selectors";
 
 import MainPanel from "./MainPanel";
 import Map from "./Map";
-import Navigation from "./Navigation";
+import Navigation from "../components/Navigation";
 import LoadingScreen from "../components/LoadingPanel";
 
 const ContentDisplayer = () => {
@@ -21,7 +21,7 @@ const ContentDisplayer = () => {
           {isMobileDisplay ? (
             <>
             {contentDisplay === 'map' ? <Map/> : <MainPanel/>}
-            <Navigation setContent={setContent}/></>
+            <Navigation setContent={setContent} content={contentDisplay}/></>
           ) : (
             <>
               <MainPanel />

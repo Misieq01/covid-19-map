@@ -3,7 +3,10 @@
         @include flex();
         width: 95%;
         height: 20%;
+        margin: 20px 0;
     background: $white;
-
+@media ($laptops) {
+    margin: 0;
+}
     }
 }

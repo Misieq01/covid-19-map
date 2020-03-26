@@ -17,11 +17,19 @@
         opacity:1;
     }
     &__title{
+        font-size: 22px;
+        font-weight: normal;
+        @media ($laptops) {
         font-size: 32px;
         font-weight: normal;
+        }
     }
     &__data{
+        font-size: 15px;
+        font-weight: bold;
+        @media ($laptops) {
         font-size: 24px;
         font-weight: bold;
+        }
     }
 }
