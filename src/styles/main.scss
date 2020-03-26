@@ -18,16 +18,26 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .orange{
-  color:$orange;
+  color:$orange !important;
 }
 .red{
-  color:$red;
+  color:$red !important;
 }
 .green{
-  color:$green;
+  color:$green !important;
 }
 .white{
-  color: $white;
+  color: $white !important;
+}
+.black{
+  color: $black !important;
+}
+.purple{
+  color: rgb(154, 65, 255) !important;
+}
+
+.bold{
+  font-weight: bold !important;
 }
 
 .leaflet-fade-anim .leaflet-popup {

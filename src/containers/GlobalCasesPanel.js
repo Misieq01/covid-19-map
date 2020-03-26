@@ -14,23 +14,23 @@ const GlobalCasesPanel = () => {
       <DataBox
         text="Cases"
         data={data.cases}
-        color="rgb(255, 176, 87)"
+        color='orange'
         active={sortBy.name === "cases"}
-        onClick={() => dispatch(sortDataBy("cases", "rgb(255, 176, 87)"))}
+        onClick={() => dispatch(sortDataBy("cases", "rgb(255, 160, 51)"))}
       />
       <DataBox
         text="Deaths"
         data={data.deaths}
-        color="rgb(255, 46, 46)"
+        color='red'
         active={sortBy.name === "deaths"}
-        onClick={() => dispatch(sortDataBy("deaths", "rgb(255, 46, 46)"))}
+        onClick={() => dispatch(sortDataBy("deaths", "rgb(255, 82, 82)"))}
       />
       <DataBox
         text="Recovered"
         data={data.recovered}
-        color="rgb(119, 255, 112)"
+        color='green'
         active={sortBy.name === "recovered"}
-        onClick={() => dispatch(sortDataBy("recovered", "rgb(119, 255, 112)"))}
+        onClick={() => dispatch(sortDataBy("recovered", "rgb(120, 212, 92)"))}
       />
     </div>
   );

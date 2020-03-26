@@ -1,8 +1,22 @@
-.search-bar{
-    &__input{
-        width: 90%;
-        padding: 10px 20px;
-        margin: 20px 0;
-        border-radius: 10px;
+.search-bar {
+  &__input {
+    width: calc(100% - 80px);
+    padding: 20px 40px;
+    outline: none;
+    border: none;
+    background: $white;
+    font-size: 24px;
+    border-bottom: 1px solid rgba(100, 100, 100, 0.2);
+    transition: all 0.2s ease-in-out;
+    &:focus {
+      border-bottom: 1px solid rgba(100, 100, 100, 0.5);
     }
+    &::placeholder {
+      color: rgba(100, 100, 100, 0.4);
+    }
+    &:focus::-webkit-input-placeholder {
+      transition: all 0.2s ease-in-out;
+      color: rgba(100, 100, 100, 0.8);
+    }
+  }
 }

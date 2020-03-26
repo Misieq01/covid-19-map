@@ -5,9 +5,17 @@
     height: auto;
     margin: 2px 0;
     padding: 15px 0;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
-    background: rgb(65, 65, 65);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.18);
+    background: $white;
+    &--hover {
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      &:hover {
+        background: rgb(235, 235, 235);
+      }
+    }
   }
+
   &__smaller {
     @include flex(null, space-between);
     width: 95%;
@@ -15,59 +23,47 @@
   }
   &__wrapper {
     @include flex(null, space-between);
-    width: 20%;
+    width: auto;
     height: auto;
   }
-  &__country {
-    color: $white;
-  }
-  &__cases {
-    color: $orange;
+  &__wrapper--country{
+    color: $black;
+    margin: 0 10px;
   }
   &__arrow {
-    fill: $white;
+    fill: rgba(35, 35, 35, 0.6);
+    align-self: flex-start;
     height: 20px;
     width: 20px;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     &:hover {
-      fill: rgba(180, 180, 180, 0.9);
+      fill: rgba(35, 35, 35, 0.8);
     }
   }
   &__expanded {
     @include flex(column nowrap);
     height: 100%;
     width: 100%;
+    padding: 20px 0;
   }
-  &__expanded--main {
-    @include flex();
-    width: 100%;
-    height: 60%;
+}
+
+.box {
+  &__container {
+    width: calc(90% - 40px);
+    height: auto;
+    padding: 10px 25px;
+    margin: 10px 0px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
   }
-  &__main--country {
-    font-size: 42px;
-    color: $white;
+  &__country {
+    font-size: 28px;
+    color: $black;
   }
-  &__main--data {
-    @include flex();
-    width: 70%;
-    height: 100%;
-  }
-  &__expanded--box {
-    @include flex(column nowrap);
-    width: 30%;
-    height: 40%;
-  }
-  &__box--total {
-    font-size: 24px;
-    font-weight: bold;
-  }
-  &__box--new {
-    font-size: 18px;
-  }
-  &__expanded--details {
-    @include flex();
-    width: 100%;
-    height: 40%;
+  &__data {
+    margin: 0px 5px;
+    color: $black;
   }
 }

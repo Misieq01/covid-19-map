@@ -8,7 +8,7 @@
 }
 
 .leaflet-popup-content-wrapper{
-        background: $grey;
+        background: $white;
         padding: 0;
         margin: 0;
 }
@@ -20,7 +20,7 @@
     
 }
 .leaflet-popup-tip{
-    background: $grey;
+    background: $white;
 }
 
 .leaflet-popup-content-data-wrapper{
@@ -32,13 +32,12 @@
 
 .leaflet-popup-data-country{
     font-size: 18px;
-    color: $white;
+    color: $black;
 }
 .leaflet-popup-data-name{
     font-size: 16px;
     text-transform: capitalize;
-    color: $white;
-    font-weight: 300;
+    color: $black;
 }
 .leaflet-popup-data-number{
     font-size: 22px;

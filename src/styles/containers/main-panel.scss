@@ -1,22 +1,19 @@
 
 .panel{
     &__container{
+    @include flex(column nowrap,space-between);
     height: calc(100% - 50px);
     width: 100%;
-    background: $grey;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-around;
-    align-items: center;
+    background: $white;
     overflow-y: auto;
     overflow-x: hidden;
         &::-webkit-scrollbar {
       width: 5px;
-      height: 4px;
+      height: 10px;
     }
     &::-webkit-scrollbar-button {
       width: 0px;
-      height:1px;
+      height:0px;
     }
     &::-webkit-scrollbar-thumb {
       background: rgba(215, 215, 215,0.9);

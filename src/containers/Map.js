@@ -46,9 +46,6 @@ const Map = () => {
       <TileLayer
         url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
         subdomains='abcd'
-        //         url="https://1.base.maps.ls.hereapi.com
-        //   /maptile/2.1/maptile/newest/normal.day/13/4400/2686/256/png8
-        // ?apiKey=dd-fkiKG0W018GK9mO5im6hsqn4ZRlqaGgbxkcKyQNY"
         attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
       />
       {data.map((element, index) => {

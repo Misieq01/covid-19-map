@@ -5,19 +5,23 @@
         justify-content: space-around;
         align-items: center;
         padding: 3% 6%;
+        cursor: pointer;
+        opacity: 0.5;
+        transition: all 0.2s ease-in-out;
+        border-bottom: 1px solid $white;
+        &:hover{
+            opacity: 1;
+        }
     }
     &-active{
-        border-radius: 20px;
-        box-shadow: 0px 2px 4px rgba(0,0,0,0.16),0px 3px 6px rgba(0,0,0,0.28);
+        opacity:1;
     }
     &__title{
-        color: rgba(215, 215, 215,0.9);
         font-size: 32px;
         font-weight: normal;
     }
     &__data{
         font-size: 24px;
         font-weight: bold;
-        color: rgba(215, 215, 215,0.9);
     }
 }

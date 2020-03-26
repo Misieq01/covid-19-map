@@ -7,50 +7,42 @@ const CountryBox = ({ data, style }) => {
   const [expanded, expand] = useState(false);
   const dataDisplayed = useSelector(state=>getSortBy(state))
 
+  console.log(data)
+
+  const Data = ({name,number,color}) =>{
+    return (
+      <div className="box__container">
+        <span className="box__data">{name+ ':'}</span>
+        <span className={"box__data " + color}>{number}</span>
+      </div>
+    );  }
+  const Country = ({country,point,pointClick})=>{
+  return <div className='box__container'><span className='box__country'>{country}</span></div>
+  }
+
   return (
     <div
-      className="country-box__container"
-      style={{ ...style, height: expanded ? "200px" : "auto" }}
+      className={expanded ? "country-box__container" : "country-box__container country-box__container--hover "}
       onClick={() => expand(true)}
     >
       <div className="country-box__smaller">
         {expanded ? (
           <div className="country-box__expanded">
-            <div className="country-box__expanded--main">
-              <div className="country-box__expanded--box">
-                <h2 className="country-box__main--country">{data.country}</h2>
-              </div>
-              <div className="country-box__expanded--box orange">
-                <span className="country-box__box--total">{data.cases}</span>
-                <span className="country-box__box--new">+{data.todayCases}</span>
-              </div>
-              <div className="country-box__expanded--box red">
-                <span className="country-box__box--total">{data.deaths}</span>
-                <span className="country-box__box--new">+{data.todayDeaths}</span>
-              </div>
-              <div className="country-box__expanded--box green">
-                <span className="country-box__box--total">{data.recovered}</span>
-              </div>
-            </div>
-            <div className="country-box__expanded--details">
-              <div className="country-box__expanded--box">
-                <span>Active</span>
-                <span>{data.active}</span>
-              </div>
-              <div className="country-box__expanded--box">
-                <span>Critical</span>
-                <span>{data.critical}</span>
-              </div>
-              <div className="country-box__expanded--box">
-                <span>Cases per one milion</span>
-                <span>{data.casesPerOneMillion}</span>
-              </div>
-            </div>
+            <Country country={data.country} />
+            <Data name="Cases" number={data.cases} color="orange" />
+            <Data name="Today cases" number={data.todayCases} color="orange" />
+            <Data name="Deaths" number={data.deaths} color="red" />
+            <Data name="Today deaths" number={data.todayDeaths} color="red" />
+            <Data name="Recovered" number={data.recovered} color="green" />
+            <Data name="Active" number={data.active} color="purple" />
+            <Data name="Critical" number={data.critical} color="red" />
+            <Data name="Cases per one million" number={data.casesPerOneMillion} color="orange" />
+            <Data name="Deaths per one million" number={data.deathsPerOneMillion} color="red" />
           </div>
         ) : (
           <div className="country-box__wrapper">
-            <span className="white">{data.country}</span>
-            <span style={{color:dataDisplayed.color}}>{data[dataDisplayed.name]}</span>
+            <span className="country-box__wrapper--country">{data.country}</span>
+            <span style={{ color: dataDisplayed.color }}>{data[dataDisplayed.name]}</span>
           </div>
         )}
         <ArrowIcon
@@ -59,6 +51,7 @@ const CountryBox = ({ data, style }) => {
             event.stopPropagation();
             expand(!expanded);
           }}
+          style={expanded ? { transform: "rotate(180deg)" } : null}
         />
       </div>
     </div>
