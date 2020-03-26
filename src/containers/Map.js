@@ -9,9 +9,12 @@ const Map = () => {
   const dispatch = useDispatch();
   const INITIAL_ZOOM = 4;
   const [zoom, setZoom] = useState(INITIAL_ZOOM);
+  //getting specific data for circles
   const data = useSelector(state => dataForCircle(state));
   const sortBy = useSelector(state => getSortBy(state));
 
+  // This little switch help me to keep circles in same size at each zoom level (they cover the same amount of terrain)
+  // As far as I know Circle component handling it by its own but it not working properly
   const setMultiplayer = zoom => {
     switch (zoom) {
       case 3:
@@ -34,7 +37,9 @@ const Map = () => {
       zoom={INITIAL_ZOOM}
       minZoom={3}
       maxZoom={6}
+      //I need to track curently value of zoom to applay right multiplayer for circle size
       onzoomend={event => setZoom(event.target._zoom)}
+      //Red comments inside MapMarker
       onmousemove={window.innerWidth > 1200 ? event => dispatch(updateCursorPosition(event.latlng)) : null}
       maxBounds={[
         [-85, -200],

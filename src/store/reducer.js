@@ -2,15 +2,18 @@ import {FETCH_DATA,CHOOSE_DATA,SEARCH_COUNTRY,UPDATE_CURSOR_POSITION} from './ty
 import countries from '../JSON/countries.json'
 
 const initialState = {
-    globalCases: {},
-    countryCases: {},
-    countries: countries,
-    loading: true,
-    sortBy: {name:'cases',color:'orange'},
-    searchValue: '',
-    cursorPosition:{},
-    errorMessage: ''
-}
+  globalCases: {},
+  countryCases: {},
+  countries: countries,
+  loading: true,
+  sortBy: { name: "cases", color: "rgb(255, 160, 51)" },
+  searchValue: "",
+  cursorPosition: {},
+  errorMessage: ""
+};
+
+//Data about coronavirus that i fetching doesn't include location of each country
+//So i downloaded JSON data were it is include and after fetch i compose geolocation with each country data 
 
 const getGeoLocation = (country) =>{
     const data = countries.find(element=>{
@@ -19,6 +22,7 @@ const getGeoLocation = (country) =>{
     return data ? data.latlng : null
 }
 
+//Declaring size of circles
 const declareCircleSize = (cases) =>{
     switch (true) {
         case (cases > 0 && cases < 50):
@@ -50,12 +54,19 @@ const declareCircleSize = (cases) =>{
     }
 }
 
+// Some country names are diffrent in each dataset or there is not geolocation for some data 
+// I unifed names for big countries like UK and etc
+// Others i just removing from dataset
+//It's applly for some little coutries, mostly affrican i think and also for one cruise ship
 const removeCountrysWithoutLocation = (countries) =>{
     return countries.filter((element=>{
         return element.location !==null
     }))
 }
 
+// sorting algorithm
+//I think in future i will made 3 datasets sorted by each data that user can choose before application open
+// And then it will just choose with one to use witout sorting with each time
 const compareNumbers = (a,b,byData)=>{
       if (a[byData] < b[byData]) {
         return -1;
@@ -71,6 +82,7 @@ export const reducer = (state=initialState,action) =>{
         case FETCH_DATA.LOADING:
             return {...state,loading: true}
         case FETCH_DATA.SUCCESS:
+            //Adding geolocation for each country and also setting cirlce size for 'cases' data which is default
             const countryCasesWithLocation = action.countryCases.map(element =>{
                 return {...element,location:getGeoLocation(element.country),size: declareCircleSize(element.cases)}
             })
@@ -78,6 +90,7 @@ export const reducer = (state=initialState,action) =>{
         case FETCH_DATA.FAILED:
             return {...state,loading:false,errorMessage:'Something went wrong with loading data, please try again in few minuts'}
         case CHOOSE_DATA:
+            //Setting circle size for each country and then sorting
                 const updatedCountryCases = [...state.countryCases].map(element =>{
                     return {...element,size: declareCircleSize(element[action.sortBy.name])}
                 }).sort((a,b)=>compareNumbers(a,b,action.sortBy.name)).reverse()

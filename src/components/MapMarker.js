@@ -4,8 +4,23 @@ import { useSelector } from "react-redux";
 import { getCursorPosition } from "../store/selectors";
 
 const MapMaker = ({ dataNumber, dataName, country, color,latlng, ...props }) => {
+
+  //Displaying Popup:
+  //So i wanted to achive effect when popup follow cursor inside circle
+  //I did it by adding onmousemove event to map which update cursor position every time it moves
+  //Then i'm checking here if cursor is inside circle
+  //If its inside I'm showing popup, otherwise i closing it
+  //Obviously it would be more efficient when cursor position was updated only inside circle but CircleMarker doesn't have
+  //mousemove event. I also tried to wrap it in div and fired event from it but its not working
+  //So for now it has to stay like it is
+
   const cursorPosition = useSelector(state => getCursorPosition(state));
 
+
+  // Popup working a bit diffrent on mobile and desktops
+  // On Desktop it is manage by hover events
+  // On mobile I'm using click events 
+  // Also in each case it zooming to marker on click
   const clickHandler = event =>{
     if(window.innerWidth < 1200){
       event.target.openPopup()

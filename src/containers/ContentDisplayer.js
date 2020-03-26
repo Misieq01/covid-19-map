@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import { useSelector, useStore } from "react-redux";
+import { useSelector } from "react-redux";
 import { loading } from "../store/selectors";
 
 import MainPanel from "./MainPanel";
