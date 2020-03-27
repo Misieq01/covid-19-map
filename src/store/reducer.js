@@ -1,4 +1,4 @@
-import {FETCH_DATA,CHOOSE_DATA,SEARCH_COUNTRY,UPDATE_CURSOR_POSITION} from './types'
+import {FETCH_DATA,CHOOSE_DATA,SEARCH_COUNTRY,UPDATE_CURSOR_POSITION,SET_MAP_REF} from './types'
 import countries from '../JSON/countries.json'
 
 const initialState = {
@@ -9,6 +9,7 @@ const initialState = {
   sortBy: { name: "cases", color: "rgb(255, 160, 51)" },
   searchValue: "",
   cursorPosition: {},
+  mapRef: null,
   errorMessage: ""
 };
 
@@ -99,6 +100,8 @@ export const reducer = (state=initialState,action) =>{
             return {...state,searchValue: action.country}
         case UPDATE_CURSOR_POSITION:
             return {...state,cursorPosition: action.position}
+        case SET_MAP_REF:
+            return {...state,mapRef: action.ref}
         default:
             return state
     }

@@ -1,45 +1,11 @@
 .country-box {
   &__container {
-    @include flex(null, center);
+    @include flex(column nowrap, space-around);
     width: 100%;
     height: auto;
     margin: 2px 0;
-    padding: 15px 0;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.18);
     background: $white;
-    &--hover {
-      cursor: pointer;
-      transition: all 0.2s ease-in-out;
-      &:hover {
-        background: rgb(235, 235, 235);
-      }
-    }
-  }
-
-  &__smaller {
-    @include flex(null, space-between);
-    width: 95%;
-    height: inherit;
-  }
-  &__wrapper {
-    @include flex(null, space-between);
-    width: auto;
-    height: auto;
-  }
-  &__wrapper--country{
-    color: $black;
-    margin: 0 10px;
-  }
-  &__arrow {
-    fill: rgba(35, 35, 35, 0.6);
-    align-self: flex-start;
-    height: 20px;
-    width: 20px;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    &:hover {
-      fill: rgba(35, 35, 35, 0.8);
-    }
   }
   &__expanded {
     @include flex(column nowrap);
@@ -49,7 +15,41 @@
   }
 }
 
-.box {
+.country {
+  &__container {
+    @include flex(null, space-between);
+    width: calc(100% - 60px);
+    height: 100%;
+    padding: 15px 30px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    &-hover{
+      @extend .country__container;
+      &:hover {
+      background: rgb(235, 235, 235);
+    }
+    }
+  }
+  &__icon-wrapper {
+    @include flex();
+    width: auto;
+    height: auto;
+  }
+  &__icon {
+    fill: rgba(35, 35, 35, 0.6);
+    align-self: flex-start;
+    height: 20px;
+    width: 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      fill: rgba(35, 35, 35, 0.8);
+    }
+  }
+}
+
+.data {
   &__container {
     width: calc(90% - 40px);
     height: auto;
@@ -58,11 +58,7 @@
     border-radius: 20px;
     border: 1px solid rgba(0, 0, 0, 0.1);
   }
-  &__country {
-    font-size: 28px;
-    color: $black;
-  }
-  &__data {
+  &__container--data {
     margin: 0px 5px;
     color: $black;
   }
