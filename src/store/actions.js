@@ -1,4 +1,4 @@
-import {FETCH_DATA,CHOOSE_DATA,SEARCH_COUNTRY,UPDATE_CURSOR_POSITION,SET_MAP_REF} from './types'
+import {FETCH_DATA,CHOOSE_DATA,SEARCH_COUNTRY,UPDATE_CURSOR_POSITION,SET_MAP_REF,SET_CONTENT_DISPLAY,SET_MAP_PARAMETRS} from './types'
 import axios from 'axios';
 
 export const fetchData = () => dispatch =>{
@@ -38,5 +38,17 @@ export const setMapRef = ref =>{
     return{
         type: SET_MAP_REF,
         ref:ref
+    }
+}
+export const setContentDisplay = display =>{
+    return{
+        type: SET_CONTENT_DISPLAY,
+        display:display
+    }
+}
+export const setMapParametrs = (center,zoom) =>{
+    return{
+        type: SET_MAP_PARAMETRS,
+        parametrs: {center: center,zoom:zoom}
     }
 }

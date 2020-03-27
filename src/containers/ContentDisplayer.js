@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 import { useSelector } from "react-redux";
-import { loading } from "../store/selectors";
+import { loading,getContentDisplay } from "../store/selectors";
 
 import MainPanel from "./MainPanel";
 import Map from "./Map";
@@ -9,9 +9,8 @@ import LoadingScreen from "../components/LoadingPanel";
 
 const ContentDisplayer = () => {
   const isLoading = useSelector(state => loading(state));
-  const [contentDisplay,setContent] = useState('map')
+  const contentDisplay = useSelector(state=>getContentDisplay(state))
   const isMobileDisplay = window.innerWidth < 1200;
-
   return (
     <div className="content-displayer__container">
       {isLoading ? (
@@ -21,7 +20,7 @@ const ContentDisplayer = () => {
           {isMobileDisplay ? (
             <>
             {contentDisplay === 'map' ? <Map/> : <MainPanel/>}
-            <Navigation setContent={setContent} content={contentDisplay}/></>
+            <Navigation content={contentDisplay}/></>
           ) : (
             <>
               <MainPanel />

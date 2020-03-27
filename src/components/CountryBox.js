@@ -1,15 +1,17 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
+import {setContentDisplay,setMapParametrs} from '../store/actions'
 import { getSortBy, getMapRef } from "../store/selectors";
 import { ReactComponent as ArrowIcon } from "../assets/arrow.svg";
 import { ReactComponent as PinIcon } from "../assets/pin-point.svg";
 
 const CountryBox = ({ data, style }) => {
+  const dispatch = useDispatch()
   const [expanded, expand] = useState(false);
-
   //getting data that user wants to display in not expaned box
   // const dataDisplayed = useSelector(state => getSortBy(state));
   const mapRef = useSelector(state => getMapRef(state));
+  console.log(mapRef)
   //Component for displaying each data in expaned box
   const Data = ({ name, number, color }) => {
     return (
@@ -31,7 +33,8 @@ const CountryBox = ({ data, style }) => {
             className="country__icon"
             onClick={event => {
               event.stopPropagation();
-              mapRef.setView(data.location, 5);
+              dispatch(setContentDisplay('map'))
+              dispatch(setMapParametrs(data.location,5))
             }}
           />
           <ArrowIcon

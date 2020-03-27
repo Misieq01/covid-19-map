@@ -1,23 +1,26 @@
-import React, { useState,useEffect,useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Map as LeafletMap, TileLayer } from "react-leaflet";
 import { useSelector, useDispatch } from "react-redux";
-import { dataForCircle, getSortBy } from "../store/selectors";
-import { updateCursorPosition,setMapRef } from "../store/actions";
+import { dataForCircle, getSortBy, getMapRef,getMapParametrs } from "../store/selectors";
+import { updateCursorPosition, setMapRef,setMapParametrs } from "../store/actions";
 import MapMarker from "../components/MapMarker";
 
 const Map = () => {
-  const mapRef = useRef(null)
+  const ref = useSelector(state => getMapRef(state));
+  const mapRef = useRef(ref);
   const dispatch = useDispatch();
-  const INITIAL_ZOOM = 4;
-  const [zoom, setZoom] = useState(INITIAL_ZOOM);
+  const mapParametrs = useSelector(state=>getMapParametrs(state))
+  const [zoom, setZoom] = useState(mapParametrs.zoom);
   //getting specific data for circles
   const data = useSelector(state => dataForCircle(state));
   const sortBy = useSelector(state => getSortBy(state));
+  
 
-
-    useEffect(() => {
-      dispatch(setMapRef(mapRef.current.leafletElement))
-    }, [dispatch]);
+  useEffect(() => {
+    if (ref === null) {
+      dispatch(setMapRef(mapRef.current.leafletElement));
+    }
+  }, [dispatch,ref]);
 
   // This little switch help me to keep circles in same size at each zoom level (they cover the same amount of terrain)
   // As far as I know Circle component handling it by its own but it not working properly
@@ -32,16 +35,15 @@ const Map = () => {
       case 6:
         return 8;
       default:
-        return INITIAL_ZOOM;
+        return 2;
     }
   };
 
   return (
     <LeafletMap
-    ref={mapRef}
+      ref={mapRef}
       style={{ cursor: "default" }}
-      center={[52.0, 20.0]}
-      zoom={INITIAL_ZOOM}
+      {...mapParametrs}
       minZoom={3}
       maxZoom={6}
       //I need to track curently value of zoom to applay right multiplayer for circle size
