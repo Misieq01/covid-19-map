@@ -1,7 +1,7 @@
 
 .panel{
     &__container{
-    @include flex(column nowrap,space-between);
+    @include flex(column nowrap,flex-start);
     height: calc(100% - 40px);
     width: 100%;
     background: $white;
@@ -16,11 +16,15 @@
       height:0px;
     }
     &::-webkit-scrollbar-thumb {
-      background: rgba(215, 215, 215,0.9);
+      background: rgba(230,230,230,1);
+      opacity: 1;
+    }
+    &::-webkit-scrollbar-track{
+      background: rgba(180, 180, 180,0.8);
     }
     @media ($laptops) {
     height: 100vh;
-    width: 40%;
+    width: 30%;
     }
 }
 }

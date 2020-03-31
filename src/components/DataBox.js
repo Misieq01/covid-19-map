@@ -5,11 +5,13 @@ const DataBox = ({ text, data, color, active, onClick }) => {
   return (
     <div
       className={"data-box__container " + isActive}
-      style={active ? { borderBottom: "1px solid " + color } : null}
+      style={active ? { borderBottom: "2px solid " + color } : null}
       onClick={onClick}
     >
-      <h2 className={"data-box__title " + color}>{text}</h2>
-      <span className={"data-box__data " + color}>{data}</span>
+      <div className="data-box__wrapper">
+        <span className="data-box__data " style={active ? {color: color} : null}>{data}</span>
+        <h2 className="data-box__title ">{text}</h2>
+      </div>
     </div>
   );
 };

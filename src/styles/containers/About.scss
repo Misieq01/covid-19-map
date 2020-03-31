@@ -1,0 +1,16 @@
+.about{
+
+    &__container{
+        width: 95%;
+        margin: 10px 0;
+    }
+    &__title{
+        font-size: 24px;
+        font-weight: bold;
+        color: $black;
+    }
+    &__paragraph{
+        text-align: left;
+        color: $black;
+    }
+}

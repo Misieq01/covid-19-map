@@ -14,8 +14,7 @@ const CountryCasesPanel = () =>{
     //Basic mapping to display all Data
     const Elements = () =>{
         return data.map((data,index)=> {
-            const border = {borderRadius:'5px 0 0 0'}
-            return <CountryBox data={data} style={index === 0 ? border : null} key={index} />; } )
+            return <CountryBox data={data} key={index} />; } )
     }
 
     return<div className='country-cases-panel__container'>

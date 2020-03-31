@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Map as LeafletMap, TileLayer } from "react-leaflet";
 import { useSelector, useDispatch } from "react-redux";
 import { dataForCircle, getSortBy, getMapRef,getMapParametrs } from "../store/selectors";
-import { updateCursorPosition, setMapRef,setMapParametrs } from "../store/actions";
+import { updateCursorPosition, setMapRef } from "../store/actions";
 import MapMarker from "../components/MapMarker";
 
 const Map = () => {
