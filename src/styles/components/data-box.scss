@@ -24,8 +24,10 @@
         color: $black;
         transition: all 0.2s ease-in-out;
         @media ($laptops) {
+        font-size: 16px;
+        }
+        @media ($desktops) {
         font-size: 18px;
-        font-weight: normal;
         }
     }
     &__data{
@@ -34,6 +36,9 @@
         transition: all 0.2s ease-in-out;
         color: $black;
         @media ($laptops) {
+        font-size: 26px;
+        }
+        @media ($desktops){
         font-size: 30px;
         }
     }

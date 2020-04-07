@@ -2,7 +2,8 @@
   &__wrapper{
     @include flex();
     width: 50%;
-    margin: 5px 0;
+    margin: 5px 0 ;
+    // border-bottom: 1px solid rgba(0,0,0,0.2);
 
   }
   &__input {
