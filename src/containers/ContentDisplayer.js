@@ -13,7 +13,7 @@ const ContentDisplayer = () => {
   const isMobileDisplay = window.innerWidth < 1200;
   return (
     <div className="content-displayer__container">
-      {true ? (
+      {isLoading ? (
         <LoadingScreen />
       ) : (
         <>
