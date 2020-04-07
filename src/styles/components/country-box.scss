@@ -7,12 +7,6 @@
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.18);
     background: $white;
   }
-  &__expanded {
-    @include flex(column nowrap);
-    height: 100%;
-    width: 100%;
-    padding: 20px 0;
-  }
 }
 
 .country {
@@ -22,12 +16,11 @@
     height: 100%;
     padding: 15px 20px;
     cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    &-hover{
+    &--hover {
       @extend .country__container;
       &:hover {
-      background: rgb(235, 235, 235);
-    }
+        background: rgb(235, 235, 235);
+      }
     }
   }
   &__wrapper {
@@ -35,11 +28,11 @@
     width: auto;
     height: auto;
   }
-  &__wrapper--country{
-  margin: 0 5px;
-  color: $black
+  &__wrapper--country {
+    margin: 0 5px;
+    color: $black;
   }
-  &__wrapper--data{
+  &__wrapper--data {
     margin: 0 10px;
   }
   &__icon {
@@ -48,9 +41,14 @@
     width: 20px;
     margin: 0 5px;
     cursor: pointer;
+    transform: rotate(0deg);
     transition: all 0.2s ease-in-out !important;
     &:hover {
       fill: rgba(35, 35, 35, 0.8);
+    }
+    &--expanded {
+      @extend .country__icon;
+      transform: rotate(180deg);
     }
   }
 }
@@ -62,6 +60,7 @@
     padding: 10px 25px;
     margin: 10px 0px;
     border-radius: 20px;
+    transition: all 0.2s ease-in-out;
     border: 1px solid rgba(0, 0, 0, 0.1);
   }
   &__container--data {
