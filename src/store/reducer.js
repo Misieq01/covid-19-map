@@ -1,4 +1,4 @@
-import {FETCH_DATA,CHOOSE_DATA,SEARCH_COUNTRY,UPDATE_CURSOR_POSITION,SET_MAP_REF,SET_CONTENT_DISPLAY,SET_MAP_PARAMETRS} from './types'
+import {FETCH_DATA,CHOOSE_DATA,SEARCH_COUNTRY,UPDATE_CURSOR_POSITION,SET_CONTENT_DISPLAY,SET_MAP_PARAMETRS} from './types'
 import countries from '../JSON/countries.json'
 
 const initialState = {
@@ -12,7 +12,6 @@ const initialState = {
   //only for mobile
   contentDisplay: 'map',
   cursorPosition: {},
-  mapRef: null,
   errorMessage: ""
 };
 
@@ -103,8 +102,6 @@ export const reducer = (state=initialState,action) =>{
             return {...state,searchValue: action.country}
         case UPDATE_CURSOR_POSITION:
             return {...state,cursorPosition: action.position}
-        case SET_MAP_REF:
-            return {...state,mapRef: action.ref}
         case SET_CONTENT_DISPLAY:
             return {...state,contentDisplay: action.display}
         case SET_MAP_PARAMETRS:

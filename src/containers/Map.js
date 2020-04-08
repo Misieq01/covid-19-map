@@ -1,26 +1,17 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import { Map as LeafletMap, TileLayer } from "react-leaflet";
 import { useSelector, useDispatch } from "react-redux";
-import { dataForCircle, getSortBy, getMapRef,getMapParametrs } from "../store/selectors";
-import { updateCursorPosition, setMapRef } from "../store/actions";
+import { dataForCircle, getSortBy,getMapParametrs } from "../store/selectors";
+import { updateCursorPosition } from "../store/actions";
 import MapMarker from "../components/MapMarker";
 
 const Map = () => {
-  const ref = useSelector(state => getMapRef(state));
-  const mapRef = useRef(ref);
   const dispatch = useDispatch();
   const mapParametrs = useSelector(state=>getMapParametrs(state))
   const [zoom, setZoom] = useState(mapParametrs.zoom);
   //getting specific data for circles
   const data = useSelector(state => dataForCircle(state));
   const sortBy = useSelector(state => getSortBy(state));
-  
-
-  useEffect(() => {
-    if (ref === null) {
-      dispatch(setMapRef(mapRef.current.leafletElement));
-    }
-  }, [dispatch,ref]);
 
   // This little switch help me to keep circles in same size at each zoom level (they cover the same amount of terrain)
   // As far as I know Circle component handling it by its own but it not working properly
@@ -41,7 +32,6 @@ const Map = () => {
 
   return (
     <LeafletMap
-      ref={mapRef}
       style={{ cursor: "default" }}
       {...mapParametrs}
       minZoom={3}
