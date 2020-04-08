@@ -8,7 +8,6 @@ const GlobalCasesPanel = () => {
   const dispatch = useDispatch();
   const data = useSelector(state => globalCases(state));
   const sortBy = useSelector(state=>getSortBy(state))
-  console.log(data);
   return (
     <div className="global-cases-panel__container">
       <DataBox
